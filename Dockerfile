@@ -134,6 +134,7 @@ RUN bash -c "source $NVM_DIR/nvm.sh && npm install -g opencode-ai@latest"
 
 # installs omo with all free models, maybe this can be customized later on
 # note: to enable support, please add or update the opencode.json file in your project itself (see opencode.json)
+# you'll also want to install this on your host as well, but remove the plugin definition in ~/.config/opencode/opencode.json if you want to be project specific
 RUN bunx oh-my-opencode install --no-tui --claude=no --gemini=no --copilot=no --openai=no --opencode-go=no --opencode-zen=no --zai-coding-plan=no
 
 # bundle in the MCP server (if you want to use it)
