@@ -132,6 +132,10 @@ ENV JAVA_HOME="/home/coder/.sdkman/candidates/java/current"
 ARG OPENCODE_BUILD_TIME=0
 RUN bash -c "source $NVM_DIR/nvm.sh && npm install -g opencode-ai@latest"
 
+# installs omo with all free models, maybe this can be customized later on
+# note: to enable support, please add or update the opencode.json file in your project itself (see opencode.json)
+RUN bunx oh-my-opencode install --no-tui --claude=no --gemini=no --copilot=no --openai=no --opencode-go=no --opencode-zen=no --zai-coding-plan=no
+
 # bundle in the MCP server (if you want to use it)
 RUN mkdir /home/coder/mcp
 RUN git clone https://github.com/Coding-Solo/godot-mcp.git
